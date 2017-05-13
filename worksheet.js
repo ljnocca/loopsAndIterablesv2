@@ -21,8 +21,8 @@ function maxOfArray(array){
 		return null
 	}
 	else{
-		array.sort(function(a,b){return b-a})
-    	return array[0]
+		array.sort(function(a,b){return b-a}) //sort from greatest to smallest
+    	return array[0] //return first number in sorted array
 	}
 }
 
@@ -55,9 +55,9 @@ function isVowel(character){
  */
 
 function reverse(string){
-    var stringArray = string.split('')
-    stringArray.reverse()
-    var outputString = stringArray.join('')
+    var stringArray = string.split('') //split word into array of letters
+    stringArray.reverse() //reverse those letters
+    var outputString = stringArray.join('') //join those letters back together
     return outputString
 }
 
@@ -102,9 +102,9 @@ function fizzbuzz(number){
  * i.e. findLongestWord("a book full of dogs") should return "book"
  */
 function findLongestWord(string){
-    var justLetters = string.replace(/[^A-Za-z\s]/, "") 
-    var stringArray = justLetters.split(' ')
-    var sortedArray = stringArray.sort(function(a,b){return b.length-a.length})
+    var justLetters = string.replace(/[^A-Za-z\s]/, "") //regex replaces everything except A-Z and a-z
+    var stringArray = justLetters.split(' ') //split into array of words
+    var sortedArray = stringArray.sort(function(a,b){return b.length-a.length}) //sort from largest to smallest
     return sortedArray[0]
 }
 
@@ -115,4 +115,13 @@ function findLongestWord(string){
  * write a function that returns the Greatest Common Denominator of two numbers
  * - if no GCD exists, return 1
  */
+
+ var GCD = function(num1, num2) {
+    for (var i = num1; i > 0; i--) {            // begin iterating backwards from an input number
+        if (num1 % i === 0 && num2 % i === 0) { // as soon as both input numbers are divisible by i,
+            return i                            // return i
+        }
+    }
+    return 1                                    // otherwise, return 1
+}
 
