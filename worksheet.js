@@ -37,7 +37,6 @@ function isVowel(character){
     if(typeof(character)==='number'){
         return false
     }
-    
 	else if ((character==='a')||(character==='o')||(character==='i')||(character==='e')||(character==='u')||(character==='y')||(character==='A')||(character==='O')||(character==='I')||(character==='E')||(character==='U')||(character==='Y')){
 		return true
 	}
@@ -55,6 +54,12 @@ function isVowel(character){
  * string "books".
  */
 
+function reverse(string){
+    var stringArray = string.split('')
+    stringArray.reverse()
+    var outputString = stringArray.join('')
+    return outputString
+}
 
 /**
  * Part 4
