@@ -75,6 +75,24 @@ function reverse(string){
  For the number 15, the fizzbuzz string is "..fizz.buzzfizz..fizzbuzz.fizz..fizzbuzz"
  */
 
+function fizzbuzz(number){
+    var string = ""
+    for (var i=1; i<=number ;i++){
+        if((i%3!==0)&&(i%5!==0)){
+            string += '.'
+        }
+        else if((i%3===0)&&(i%5!==0)){
+            string += 'fizz'
+        }
+        else if((i%3!==0)&&(i%5===0)){
+            string += 'buzz'
+        }
+        else if((i%3===0)&&(i%5===0)){
+            string += 'fizzbuzz'
+        }
+    }
+    return string
+}
 
 /**
  * Part 5
@@ -83,6 +101,12 @@ function reverse(string){
  words and returns the longest word.
  * i.e. findLongestWord("a book full of dogs") should return "book"
  */
+function findLongestWord(string){
+    var justLetters = string.replace(/[^A-Za-z\s]/, "") 
+    var stringArray = justLetters.split(' ')
+    var sortedArray = stringArray.sort(function(a,b){return b.length-a.length})
+    return sortedArray[0]
+}
 
 
 /**
