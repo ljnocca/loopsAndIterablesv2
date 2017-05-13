@@ -4,11 +4,27 @@
  * Write a function that calculates the sum of all the numbers in an array
  */
 
+ function sumOfArray(array){
+ 	var summation = 0
+ 	for (var i = 0; i<array.length; i++){
+ 		summation += array[i] 
+ 	}
+ 	return summation
+ }
+
 // PART 1
 
 // Write a function maxOfArray() that takes an array of
 // numbers as an argument and returns the highest number in the array.
-
+function maxOfArray(array){
+	if(array.length===0){
+		return null
+	}
+	else{
+		array.sort(function(a,b){return b-a})
+    	return array[0]
+	}
+}
 
 /**
  * PART 2
@@ -17,6 +33,18 @@
  * as input and returns true if it is a vowel, false otherwise.
  */
 
+function isVowel(character){
+    if(typeof(character)==='number'){
+        return false
+    }
+    
+	else if ((character==='a')||(character==='o')||(character==='i')||(character==='e')||(character==='u')||(character==='y')||(character==='A')||(character==='O')||(character==='I')||(character==='E')||(character==='U')||(character==='Y')){
+		return true
+	}
+	else{
+		return false
+	}
+}
 
 /**
  * Part 3

@@ -5,11 +5,27 @@ var assert = require('chai').assert
  * Write a function that calculates the sum of all the numbers in an array
  */
 
+ function sumOfArray(array){
+ 	var summation = 0
+ 	for (var i = 0; i<array.length; i++){
+ 		summation += array[i] 
+ 	}
+ 	return summation
+ }
+
 // PART 1
 
 // Write a function maxOfArray() that takes an array of
 // numbers as an argument and returns the highest number in the array.
-
+function maxOfArray(array){
+	if(array.length===0){
+		return null
+	}
+	else{
+		array.sort(function(a,b){return b-a})
+    	return array[0]
+	}
+}
 
 /**
  * PART 2
@@ -18,6 +34,18 @@ var assert = require('chai').assert
  * as input and returns true if it is a vowel, false otherwise.
  */
 
+function isVowel(character){
+    if(typeof(character)==='number'){
+        return false
+    }
+    
+	else if ((character==='a')||(character==='o')||(character==='i')||(character==='e')||(character==='u')||(character==='y')||(character==='A')||(character==='O')||(character==='I')||(character==='E')||(character==='U')||(character==='Y')){
+		return true
+	}
+	else{
+		return false
+	}
+}
 
 /**
  * Part 3
@@ -90,6 +118,11 @@ describe('sumOfArray()', function(){
 	})
 })
 describe('maxOfArray()', function(){
+	it('should output a number if the array is not empty, else null', function() {
+		checkFuncBasics('maxOfArray',1)
+		expect(maxOfArray([5,10,2])).to.be.a('number')
+		expect(maxOfArray([])).to.be.null
+	})
 	it('should return the highest number of an array', function(){
 		checkFuncBasics('maxOfArray',1)
 		assert.equal(4, maxOfArray([2, 4, 3]))
@@ -115,7 +148,7 @@ describe('reverse()', function(){
 })
 describe('fizzbuzz()', function(){
 	it('should meet the standards listed in Part 4 instructions', function(){
-		checkFuncBasics('fizzbuzz',2)
+		checkFuncBasics('fizzbuzz',1)
 		assert.equal(".", fizzbuzz(1))
 		assert.equal("..", fizzbuzz(2))
 		assert.equal("..fizz", fizzbuzz(3))
